@@ -30,7 +30,7 @@
     <p>It works with <strong>one Google account only: deepspacenova@gmail.com</strong>, Nova's own mailbox. When it starts, and again at least every 10 minutes while in use, it asks Gmail which account is signed in. If the answer is any other account, it refuses to work and shuts itself off until it is set up again. It also refuses a stored credential that is labelled for a different account. An emergency read-only switch and a kill switch that revokes access remain available to the operator.</p>
 
     <h2>2. Google user data it accesses</h2>
-    <p>The application requests these Google OAuth scopes, and no others. The first three are required; the last three are optional and are only used once granted:</p>
+    <p>The application requests these Google OAuth scopes, and no others. The first three are required; the others are optional:</p>
     <div class="table-scroll">
       <table>
         <thead><tr><th>Scope</th><th>Data</th><th>Used for</th></tr></thead>
@@ -39,7 +39,7 @@
           <tr><td class="v">gmail.settings.basic</td><td>Mail filters, signature, vacation responder and basic mail settings</td><td>Reading settings, and changing filters, the signature or the vacation responder</td></tr>
           <tr><td class="v">contacts</td><td>Google Contacts entries and contact groups in that account</td><td>Looking up, creating, updating, grouping and deleting contacts</td></tr>
           <tr><td class="v">https://mail.google.com/ (optional)</td><td>Full access to the mailbox</td><td>Only for permanently deleting messages and emptying Trash or Spam</td></tr>
-          <tr><td class="v">gmail.settings.sharing (optional)</td><td>Forwarding settings</td><td>Managing forwarding addresses, automatic forwarding and forwarding filters</td></tr>
+          <tr><td class="v">gmail.settings.sharing (granted, not used)</td><td>Forwarding settings</td><td>Not used: Google allows changing forwarding settings through its API only for company (Workspace) accounts. The app no longer requests it; it drops off at the next re-authorization</td></tr>
           <tr><td class="v">contacts.other.readonly (optional)</td><td>"Other contacts": addresses Gmail saved automatically from correspondence</td><td>Looking up people Nova has corresponded with</td></tr>
         </tbody>
       </table>
